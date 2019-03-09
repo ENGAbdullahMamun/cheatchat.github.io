@@ -1,0 +1,456 @@
+<!DOCTYPE >
+<html>
+<head>
+<title>Funtime hotspot > login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+<link rel="stylesheet" type="text/css" media="all" href="packages/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="js/bt.css">
+<link rel="stylesheet" type="text/css" media="all" href="css/theme.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jq.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/pass.js"></script>
+<script>
+ function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            }
+            else var expires = "";
+
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+            createCookie(name, "", -1);
+        }
+    
+   
+</script>
+</head>
+
+<body >
+<section class="login-wrap">
+	<form name="sendin" action="$(link-login-only)" method="post">
+			<input type="hidden" name="username" />
+			<input type="hidden" name="password" />
+			<input type="hidden" name="dst" value="$(link-orig)" />
+			<input type="hidden" name="popup" value="true" />
+		</form>
+		<script type="text/javascript" src="/md5.js"></script>
+		<script type="text/javascript">
+		<!--
+		    function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+		    }
+		//-->
+		</script>
+    <style>
+    img{
+      height: 110px;
+      width: 140px;
+	  margin-bottom: -10px;
+	  animation: logo 3s forwards 0s linear;
+    }
+	.lead{
+	font-size: 12px;
+	}
+	@keyframes logo{
+    0%{
+        transform: scale(0);
+        }
+    100%{
+        }
+}
+    </style>
+            <!-- RECOVERY -->
+    <div class="login-box card col-md-12 fixed-top">
+     	<div class="card-body recovery" style="display:none">
+
+            <a href="#" class="text-center d-block mb-3">
+                 <img src="img/logo.png" alt="Home"/>
+            </a>
+            <div style="cursor:pointer" class="forgot cross">
+         	   <span style="    font-size: 56px;
+    margin-left: 8px;
+    line-height: 44px;
+    color: #fff;">&times;</span>
+        	</div>
+            <div class="row" style="margin-top: 40px">
+            	<div class="col-md-12 text-center">
+                <h4>Password Recovery</h4>
+                <p>Enter <strong class="text-muted">Mobile Number </strong>  on the account and <strong class="text-muted">click Send</strong></p>
+
+		        </div>
+            </div>
+
+            <form class="form-horizontal" method="post"  action="http://hotspot.skynetchowmuhani.com/hotspot_portal/retrivepassword.php">
+                <input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <input class="form-control st" type="tel" name="mobile1" maxlength="11" pattern="\d{4}" placeholder="Enter Your mobile" required="required">
+                    </div>
+                </div>
+                <div class="form-group row text-center mt-4">
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase" type="submit">Send</button>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-0 text-center">
+                	<div class="col-md-12">
+                        <p class="text-muted mb-0">Powered by <a href="http://funtime.com.bd">Skynet Chowumuhani</a></p>
+						<sp class="lead col-md-7">Support: <a href="tel:+8809604500400"><b>09604500400</b></a> Ex-3</sp>
+						<br>
+						<sp class="lead col-md-7">Phone: <a href="tel:+8801708581768"><b>01708581768</b></a></sp>
+                	</div>
+                </div>
+            </form>
+        </div>
+     	<div class="card-body signup" style="display:none">
+            <a href="#" class="text-center d-block mb-3">
+                 <img src="img/logo.png" alt="Home" />
+            </a>
+            <div  style="cursor:pointer;" class="sign cross"> <span style=" font-size: 56px; margin-left: 8px; line-height: 44px; color: #fff;">&times;</span></div>
+            <form class="form-horizontal" style="margin-top: 40px;" action="http://hotspot.skynetchowmuhani.com/hotspot_portal/save_client.php" method="post">
+			<h4 class="text-info text-center">New Registration</h4>
+                <input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <input 
+                               class="form-control st1"
+                               type="text"
+                               name="user_name" autocomplete="off" placeholder="Enter Name" required>
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <input class="form-control st2" type="tel" maxlength="11" pattern="\d{11}" autocomplete="off" name="user_mobile" placeholder="Enter Mobile Number" title="Please insert 11 digit Phone Number" required>
+                    </div>
+                </div>
+    
+
+
+                <div class="form-group row text-center mt-4">
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase" type="submit">submit</button>
+                    </div>
+                </div>
+               <p class="mssg text-info" style="font-size: 15px">An SMS has been sent to you with further instructions.</p>
+               <div class="form-group row mb-0 text-center">
+                	<div class="col-md-12">
+                        <p class="text-muted mb-0">Powered by <a href="http://funtime.com.bd">Skynet Chowumuhani</a></p>
+						<sp class="lead col-md-7">Support: <a href="tel:+8809604500400"><b>09604500400</b></a> Ex-3</sp>
+						<br>
+						<sp class="lead col-md-7">Phone: <a href="tel:+8801708581768"><b>01708581768</b></a></sp>
+                	</div>
+                </div>
+            </form>
+        </div>
+
+     	<div class="card-body cardrexharge" style="display:none">
+            <a href="#" class="text-center d-block mb-3">
+                 <img src="img/logo.png" alt="Home" />
+            </a>
+            <div  style="cursor:pointer" class="cardrexharges cross"> <span style=" font-size: 56px; margin-left: 8px; line-height: 44px; color: #fff;">&times;</span></div>
+            <form class="form-horizontal" style="margin-top: 40px;" action="http://hotspot.skynetchowmuhani.com/hotspot_portal/card_save.php" method="post">
+			<h4 class="text-info text-center">Card Recharge</h4>
+                <input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <input class="form-control st3" type="tel" maxlength="11" pattern="\d{11}" autocomplete="off" name="user_id" placeholder="Enter Mobile Number" 
+                               title="Please insert 11 digit Phone Number" required>
+                    </div>
+                </div>
+
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                          <input type="text" class="form-control st" name="pin" id="pin" value=""  autocomplete="off"  placeholder="Enter Card Pin" required>
+                    </div>
+                </div>
+                <div class="form-group row text-center mt-4">
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase" type="submit">submit</button>
+                    </div>
+                </div>
+               <p class="mssg text-info" style="font-size: 15px">An SMS has been sent to you with further instructions.</p>
+                <div class="form-group row mb-0 text-center">
+                	<div class="col-md-12">
+                        <p class="text-muted mb-0">Powered by <a href="http://funtime.com.bd">Skynet Chowumuhani</a></p>
+						<sp class="lead col-md-7">Support: <a href="tel:+8809604500400"><b>09604500400</b></a> Ex-3</sp>
+						<br>
+						<sp class="lead col-md-7">Phone: <a href="tel:+8801708581768"><b>01708581768</b></a></sp>
+                	</div>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-body">
+            <a href="#" class="text-center d-block mb-3">
+                <img src="img/logo.png" alt="Home"  />
+            </a>
+            <div class="row">
+            	<div class="col-md-12 text-center">
+           			 <form name="test" action="http://hotspot.skynetchowmuhani.com/hotspot_portal/statustest.php" method="post" >
+                        <input type="hidden" name="username" id="send_user" value=""/>
+                        <input type="hidden" name="password" id="send_password" value=""/>
+                        <input type="hidden" name="dst" value="$(link-orig)" />
+                        <input type="hidden" name="popup" value="true" />
+                    </form>
+                	 $(if error)
+		                <div class="alert alert-danger">
+                        $(error)
+
+                        <script type="text/javascript">
+						$('#send_user').val(readCookie('username'));
+						$('#send_password').val(readCookie('password'));
+							function doLogintest() {
+								document.test.submit();
+								return false;
+							}
+						eraseCookie('username');
+						eraseCookie('password');
+						doLogintest();
+						</script>
+                        </div>
+		            $(endif)
+                	<!--$(if error)
+		                <div class="alert alert-danger">$(error)</div>
+		            $(endif)
+
+		            <p class="mb-0">Please log on to use the hotspot service.</p>
+
+		            $(if trial == 'yes')
+		                <p class="mb-0">
+		                    Free trial available, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.
+		                </p>
+		            $(endif)-->
+		        </div>
+            </div>
+
+            <form class="form-horizontal" id="loginform" name="login" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                <h4 class="text-info text-center">Login</h4>
+				<input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <input 
+                               class="form-control st4"
+                               type="tel"
+                               name="username"
+                               maxlength="11"
+                               pattern="\d{11}"
+                               id="username"
+                               placeholder="Enter Mobile Number"
+                               value=""
+                               title="Please insert 11 digit Phone Number"
+                               required
+                               >
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                <div class="input-group col-md-12">
+                        <input class="form-control st5" id="password" name="password" type="password" placeholder="Enter Password" aria-label="Enter password" aria-describedby="show_password"/>
+                        <div class="input-group-append">
+                        <span id="show_password" name="show_password" class="st5 input-group-text" style="font-weight: 500">Show</span> 
+                        </div>
+                </div>
+                </div>
+
+
+                <div class="form-group row text-center">
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase" type="submit">Log In</button>
+                    </div>
+                </div>
+                <div class="form-group row text-center" style="margin-top: -10px;">
+                <div class="col-md-12">
+                     <a class="sign btn btn-success btn-lg btn-block text-uppercase"  href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> New Registration</a>
+               </div>
+                </div>
+                
+                <div class="form-group row text-center" style="margin-top: -10px;">
+                <div class="col-md-12">
+                   <a class="btn btn-primary btn-lg btn-block text-uppercase" href="http://hotspot.skynetchowmuhani.com/portal"><i class="fa fa-user" aria-hidden="true"></i> Self Care</a>
+               </div>
+                  
+                </div>
+                  <div class="form-group d-flex" style="margin-top: -10px">
+                 <a class="forgot btn btn-danger mr-auto" href="#" style="font-size: 12px;padding-left: 30px; padding-right: 30px"><i class="fa fa-lock" aria-hidden="true"></i>Forgot<br>password</a>
+                 <a class="cardrexharges btn btn-success ml-auto "  href="#" style="font-size: 12px;padding-left: 30px; padding-right: 30px"><i class="fa fa-sign-in" aria-hidden="true"></i>Card <br>Recharge</a>
+               </div>           
+                
+              
+                <hr>
+				
+                <div class="form-group row mb-0 text-center">
+                	<div class="col-md-12">
+                        <p class="text-muted">Powered by <a href="http://funtime.com.bd">Skynet Chowumuhani</a></p>
+						
+						<sp class="lead col-md-7">Support: <a href="tel:+8809604500400"><b>09604500400</b></a> Ex-3</sp>
+						<br>
+						<sp class="lead col-md-7">Phone: <a href="tel:+8801708581768"><b>01708581768</b></a></sp>
+                	</div>
+                </div>
+            </form>
+        </div>
+  	</div>
+</section>
+    <style>
+        .intro{
+		     background: rgba(214,252,249,1);
+			background: -moz-linear-gradient(left, rgba(214,252,249,1) 0%, rgba(189,237,240,1) 50%, rgba(165,247,250,1) 51%, rgba(255,255,255,1) 100%);
+			background: -webkit-gradient(left top, right top, color-stop(0%, rgba(214,252,249,1)), color-stop(50%, rgba(189,237,240,1)), color-stop(51%, rgba(165,247,250,1)), color-stop(100%, rgba(255,255,255,1)));
+			background: -webkit-linear-gradient(left, rgba(214,252,249,1) 0%, rgba(189,237,240,1) 50%, rgba(165,247,250,1) 51%, rgba(255,255,255,1) 100%);
+			background: -o-linear-gradient(left, rgba(214,252,249,1) 0%, rgba(189,237,240,1) 50%, rgba(165,247,250,1) 51%, rgba(255,255,255,1) 100%);
+			background: -ms-linear-gradient(left, rgba(214,252,249,1) 0%, rgba(189,237,240,1) 50%, rgba(165,247,250,1) 51%, rgba(255,255,255,1) 100%);
+			background: linear-gradient(to right, rgba(214,252,249,1) 0%, rgba(189,237,240,1) 50%, rgba(165,247,250,1) 51%, rgba(255,255,255,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6fcf9', endColorstr='#ffffff', GradientType=1 );
+            border-radius: 19px 19px 19px 19px;
+            -moz-border-radius: 19px 19px 19px 19px;
+            -webkit-border-radius: 19px 19px 19px 19px;
+            border: 0px solid #000000;
+            -webkit-box-shadow: 0px 0px 25px -1px rgba(0,151,230,1);
+            -moz-box-shadow: 0px 0px 25px -1px rgba(0,151,230,1);
+            box-shadow: 0px 0px 25px -1px rgba(0,151,230,1);
+        }
+    </style>
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+<script type="text/javascript" src="packages/bootstrap/libraries/tether.js"></script>
+<script type="text/javascript" src="packages/bootstrap/libraries/popper.js"></script>
+<script type="text/javascript" src="packages/bootstrap/bootstrap.js"></script>
+<script>
+$('.forgot').click(function() {
+  $('.recovery').toggle();
+});
+$('.sign').click(function() {
+  $('.signup').toggle();
+});
+$('.cardrexharges').click(function() {
+  $('.cardrexharge').toggle();
+});
+    
+
+    
+$(document).ready(function(){
+  $(".st").click(function(){
+    $(".st").addClass("intro");
+      $(".st1").removeClass("intro");
+      $(".st2").removeClass("intro");
+      $(".st3").removeClass("intro");
+      $(".st4").removeClass("intro");
+      $(".st5").removeClass("intro");
+      
+  });
+ $(".st1").click(function(){
+    $(".st1").addClass("intro");
+      $(".st").removeClass("intro");
+      $(".st2").removeClass("intro");
+      $(".st3").removeClass("intro");
+      $(".st4").removeClass("intro");
+      $(".st5").removeClass("intro");
+       });
+     $(".st2").click(function(){
+    $(".st2").addClass("intro");
+      $(".st1").removeClass("intro");
+      $(".st").removeClass("intro");
+      $(".st3").removeClass("intro");
+      $(".st4").removeClass("intro");
+      $(".st5").removeClass("intro");
+        });
+     $(".st3").click(function(){
+    $(".st3").addClass("intro");
+      $(".st1").removeClass("intro");
+      $(".st2").removeClass("intro");
+      $(".st").removeClass("intro");
+      $(".st4").removeClass("intro");
+      $(".st5").removeClass("intro");
+       });
+     $(".st4").click(function(){
+    $(".st4").addClass("intro");
+      $(".st1").removeClass("intro");
+      $(".st2").removeClass("intro");
+      $(".st3").removeClass("intro");
+      $(".st").removeClass("intro");
+      $(".st5").removeClass("intro");
+      });
+      $(".st5").click(function(){
+    $(".st5").addClass("intro");
+      $(".st1").removeClass("intro");
+      $(".st2").removeClass("intro");
+      $(".st3").removeClass("intro");
+      $(".st4").removeClass("intro");
+      $(".st").removeClass("intro");
+      });
+	$("#password").password('toggle');
+});
+
+    
+</script>
+<script>
+	function valeuSend(){
+		var username= $('#username').val();
+		var password= $('#password').val();
+			createCookie('username', username, 10);
+			createCookie('password', password, 10);
+		}
+
+</script>
+<script>  
+$(document).ready(function(){  
+ $('#show_password').on('click', function(){  
+  var passwordField = $('#password');  
+  var passwordFieldType = passwordField.attr('type');
+  if(passwordField.val() != '')
+  {
+   if(passwordFieldType == 'password')  
+   {  
+    passwordField.attr('type', 'text');  
+    $(this).html('Hide');  
+   }  
+   else  
+   {  
+    passwordField.attr('type', 'password');  
+    $(this).html('Show');  
+   }
+  }
+  else
+  {
+   alert("Please Enter Password");
+  }
+ });  
+});  
+</script>
+</body>
+</html>
